@@ -1,0 +1,73 @@
+1.
+SELECT name , launched FROM ships  where  launched between 1920 and 1942  
+ORDER BY launched , name DESC; 
+2.
+SELECT * FROM aero.trip where hour(time_out) between 12 and 17;
+
+3.
+SELECT DISTINCT p1.model, p2.model, p1.speed, p1.ram
+FROM pc p1, pc p2
+WHERE p1.speed = p2.speed AND p1.ram = p2.ram AND p1.model > p2.model;
+4.
+SELECT c.country, c.class
+FROM classes c
+WHERE UPPER(c.country) = 'USA' AND EXISTS (
+SELECT c.country, c.class
+FROM classes c
+WHERE UPPER(c.country) = 'USA' )
+UNION ALL
+SELECT c.country, c.class
+FROM classes c
+WHERE NOT EXISTS (SELECT c.country, c.class
+FROM classes c
+WHERE UPPER(c.country) = 'USA' )
+5.
+SELECT p.maker
+FROM product p
+LEFT JOIN pc ON pc.model = p.model
+WHERE p.type = 'PC'
+GROUP BY p.maker
+HAVING COUNT(p.model) = COUNT(pc.model)
+6.
+SELECT CONCAT("Середня ціна: ", price)  As midprice
+FROM computer.laptop; 
+7.
+SELECT model, COUNT(model) AS Qty_model, AVG(price) AS Avg_price
+FROM PC
+GROUP BY model
+HAVING AVG(price) < 800;
+8.
+
+9.
+SELECT t.maker as m, (select
+case when COUNT(DISTINCT pc.model)=0
+then 'no' WHEN COUNT(DISTINCT pc.model) then concat('yes ',COUNT(DISTINCT pc.model)) END
+   FROM product pr
+   JOIN pc ON pr.model=pc.model
+  WHERE pr.maker = t.maker ) pc,
+
+(select case when COUNT(DISTINCT laptop.model)=0
+ then 'no' WHEN COUNT(DISTINCT laptop.model) then concat('yes ',COUNT(DISTINCT laptop.model)) end
+   FROM product pr
+   JOIN laptop ON pr.model=laptop.model
+  WHERE pr.maker = t.maker  ) laptop,
+
+(select case when COUNT(DISTINCT printer.model)=0
+then 'no' WHEN COUNT(DISTINCT printer.model) then concat('yes ',COUNT(DISTINCT printer.model)) end
+   FROM product pr
+   JOIN printer ON pr.model=printer.model
+  WHERE pr.maker = t.maker  ) printer
+
+from product t
+group by t.maker
+10.
+SELECT DISTINCT product.model, pc.price
+FROM Product JOIN pc ON product.model = pc.model WHERE maker = 'B'
+UNION
+SELECT DISTINCT product.model, laptop.price
+FROM product JOIN laptop ON product.model=laptop.model WHERE maker='B'
+UNION
+SELECT DISTINCT product.model, printer.price
+FROM product JOIN printer ON product.model=printer.model WHERE maker='B';
+
+

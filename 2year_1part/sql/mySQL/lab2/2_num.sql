@@ -1,0 +1,1 @@
+SELECT * FROM aero.trip where hour(time_out) between 12 and 17;
