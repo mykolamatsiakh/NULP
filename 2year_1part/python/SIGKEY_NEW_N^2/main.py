@@ -1,4 +1,3 @@
-import itertools
 pattern = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
                "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
@@ -6,6 +5,7 @@ pattern = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
 def add_arr(blist):
     count = 0
     n = 0
+    k = 0
     for element in blist:
         for element_x in blist:
             element_a = element + element_x
@@ -16,11 +16,13 @@ def add_arr(blist):
                 count = count + 1
                 print "ok: ", element_a
                 del element_x, element
+                del blist[k]
                 del blist[n]
                 break
             else:
                 print "neOK: ", element_a
         n = n+1
+    k = k+1
     print "Count:", count
 
 

@@ -8,6 +8,7 @@
   margin-bottom: 10px;
 }
 
+
 .testimonial-section {
   width: 100%;
   height: auto;
@@ -202,4 +203,9 @@
 
 .testimonial.testimonial-danger-filled .testimonial-writer-name {
   color: #D9534F;
+}
+#send-btn{
+  background: url('src/send.png') left center no-repeat;
+  padding-left: 15px;
+
 }

@@ -37,7 +37,8 @@ FROM PC
 GROUP BY model
 HAVING AVG(price) < 800;
 8.
-
+select distinct product.maker ,pc.speed from product, pc
+where  product.model=pc.model and  pc.speed >= 500 and product.type='Pc';
 9.
 SELECT t.maker as m, (select
 case when COUNT(DISTINCT pc.model)=0
