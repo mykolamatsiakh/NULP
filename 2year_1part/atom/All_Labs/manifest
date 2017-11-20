@@ -11,9 +11,13 @@ maintenance.html
 404.html
 503.html
 css/style.css
+css/admin.css
 css/reviews.css
 css/bootstrap.min.css
 js/jquery.min.js
 js/bootstrap.min.js
+js/admin.js
+js/reviews.js
+js/news.js
 img/logo-inverted.png
-rules.jpg
+img/rules.jpg
