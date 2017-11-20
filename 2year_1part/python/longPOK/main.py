@@ -8,37 +8,48 @@ def sort_and_count_0(alist):
 
 
 def del_same(clist):
-    global same
-    same = [a[0] for a in itertools.groupby(sorted(clist))]
-    del same[0]
-    return same
+    global without_same
+    without_same = [a[0] for a in itertools.groupby(sorted(clist))]
+    del without_same[0]
+    return without_same
 
 
 def long_pok(blist, counterZero):
-    combination = 1
-    for i in range(len(blist) - 1):
-        if ((blist[i+1]-blist[i]) == 1):
-            combination += 1
-        elif ((blist[i+1] - blist[i]) <= counterZero):
-            m = blist[i + 1] - blist[i]
-            counterZero -= m - 1
-            combination += m-1
-            if ((blist[i] - blist[i - 1]) != 1):
-                continue
-            elif ((blist[i + 1] - blist[i]) == 1):
-                combination += 1
-        elif ((blist[i+1] - blist[i]) > counterZero):
-            combination += counterZero
-            counterZero = 0
-            if ((blist[i] - blist[i - 1]) != 1):
-                continue
-            elif ((blist[i + 1] - blist[i]) == 1):
-                combination += 1
-    combination += counterZero
-    print(combination)
-    del blist[0]
-    return combination
 
+    result = 0
+    array = sorted(set(blist))
+    if counterZero != 0:
+        array = array[1:]
+    array_size = len(blist)
+    result = 0
+    for i in range(array_size):
+        tmp = counterZero
+        count = 1
+
+        for j in range(i + 1, array_size):
+            gap = array[j] - array[j - 1]
+            case = 0
+
+            if gap == 1:
+                count += 1
+            elif gap == 2 and tmp > 0:
+                count += 2
+                case = 1
+                tmp -= 1
+            elif tmp >= gap - 1 > 2 and tmp > 0:
+                tmp -= gap - 1
+                count += gap
+                case = 2
+            else:
+                break
+
+        count += tmp
+
+
+        if result < count:
+            result = count
+
+    print(result)
 
 
 
@@ -52,7 +63,7 @@ if __name__ == '__main__':
         list[i] = int(list[i])
     sort_and_count_0(list)
     del_same(list)
-    long_pok(same, countZero)
-    print 'Max Length:', countZero , same
+    long_pok(without_same, countZero)
+    print 'Max Length:', countZero , without_same
 
 

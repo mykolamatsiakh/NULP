@@ -6,30 +6,26 @@ def add_arr(blist):
     count = 0
     n = 0
     k = 0
-    for element in blist:
-        for element_x in blist:
-            element_a = element + element_x
-            element_a = set(element_a)
-            length_of_element = len(element_a)
-            my_pattern = pattern[:length_of_element]
-            if element_a.issubset(my_pattern) and len(element_a) <= 29:
-                count = count + 1
-                print "ok: ", element_a
-                del element_x, element
-                del blist[k]
-                del blist[n]
-                break
-            else:
-                print "neOK: ", element_a
-        n = n+1
-    k = k+1
-    print "Count:", count
 
+    for element_x in blist:
+        new_list = blist[n] + element_x
+        new_list = set(new_list)
+        length_of_element = len(new_list)
+        my_pattern = pattern[:length_of_element]
+        if new_list.issubset(my_pattern) and len(new_list) <= 29:
+            count = count + 1
+            print "ok: ", new_list
+            del blist[k]
+            del blist[n]
+            break
+        else:
+            print "neOK: ", new_list
+    n = n+1
+    k = k+1
+    print count
 
 if __name__ == '__main__':
-    list = open('input_2.txt', 'r').readlines()
+    list = open('input_1.txt', 'r').readlines()
     for i in range(list.__len__()):
         list[i] = str(list[i].strip('\n'))
     add_arr(list)
-
-
