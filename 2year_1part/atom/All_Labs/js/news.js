@@ -72,13 +72,15 @@ function readOfflineNews() {
             var out = document.createElement('div');
             out.id = 'news';
             out.innerHTML =
-                "<div class='col-md-4'>" +
-                "<div class='card'> " +
-                "<a href='#'> " +
-                "<img src='" + img + "' width='100%'>" +
-                "<div class='caption'><p>" + news[0].name + "</p></div>" +
-                " <p>" + news[0].text + "</p>" +
-                "</a></div></div>";
+            "<li class=\"list-group-item col-sm-4 thumbnail\">\n" +
+                    "    <article class=\"element\">\n" +
+                    "        <div  class=\"excerpt\">\n" +  "<img src='" + img + "' width='100%'>" +
+                    "             <p>" + "<strong class=\"title\"></strong>" +news[0].name + "</p>\n" +
+                    "            <p class=\"comments news\"></p>\n" + news[0].text +
+                    "            <p class=\"time\"></p>\n" +
+                    "        </div>\n" +
+                    "    </article>\n" +
+                    "</li>";
             parentElem.appendChild(out);
             localStorage.removeItem(k);
         }
@@ -93,13 +95,15 @@ function readOfflineNews() {
                 var out = document.createElement('div');
                 out.id = 'news';
                 out.innerHTML =
-                    "<div class='col-md-4'>" +
-                    "<div class='card'> " +
-                    "<a href='#'> " +
-                    "<img src='" + cursor.value.img + "' width='100%'>" +
-                    "<div class='caption'><p>" + cursor.value.name + "</p></div>" +
-                    " <p>" + cursor.value.text + "</p>" +
-                    "</a></div></div>";
+                "<li class=\"list-group-item col-sm-4 thumbnail\">\n" +
+                        "    <article class=\"element\">\n" +
+                        "        <div  class=\"excerpt\">\n" +  "<img src='" +cursor.value.img + "' width='100%'>" +
+                        "             <p>" + "<strong class=\"title\"></strong>" +cursor.value.name+ "</p>\n" +
+                        "            <p class=\"comments news\"></p>\n" + cursor.value.text +
+                        "            <p class=\"time\"></p>\n" +
+                        "        </div>\n" +
+                        "    </article>\n" +
+                        "</li>";
                 parentElem.appendChild(out);
             }
         }
