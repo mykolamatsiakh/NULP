@@ -65,12 +65,7 @@ function addNews() {
         return false;
     }
     if (isOnline()) {
-        document.getElementById('news-form').reset();
-        document.getElementById('news-img-form').reset();
-        target.src = 'img/add_image.png';
         alert('Новина успішно надіслана.');
-    } else {
-        if (useLocalStorage) {
             var name = document.getElementById('news-name').value;
             var text = document.getElementById('news-text').value;
             imgData = target.src;
@@ -94,7 +89,7 @@ function addNews() {
         document.getElementById('news-img-form').reset();
         target.src = 'img/add_image.png';
     }
-}
+
 
 function showImage(src, target) {
     var fr = new FileReader();
