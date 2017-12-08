@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ione.CarDetailEntity" table="Car_Detail" schema="Lab_5_b_Hibernate">
+        <id name="idCarDetail">
+            <column name="idCar_Detail" sql-type="int(11)"/>
+        </id>
+        <property name="maxSpeed">
+            <column name="maxSpeed" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="maxDistanc">
+            <column name="maxDistanc" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="model">
+            <column name="model" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="clazz">
+            <column name="class" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
