@@ -17,11 +17,14 @@ function drawTable(data) {
 function drawRow(rowData) {
     var row = $("<article>")
     $("#personDataTable").append(row);
-    Image = "<div class=\"img\"><img src=\"img/1.jpg\" alt=\"альтернативный текст\" width=\"469.56px\" height=\"150px\"></div>"
-    Addition = "<a class=\"read-more\" href=\"#\">read more</a>"
+    Image =             "<li class=\"list-group-item col-sm-4 thumbnail\">\n" +
+                        "    <article class=\"element\">\n" +
+                        "        <div  class=\"excerpt\">\n" +  "<img src='src/1111.png' width='100%' he>" +
+                        "             <p>" + "<strong class=\"title\"></strong>" +rowData.title + "</p>\n" +
+                        "            <p class=\"comments news\"></p>\n" + rowData.longdescription +
+                        "            <p class=\"time\"></p>\n" +rowData.shortdescription +
+                        "        </div>\n" +
+                        "    </article>\n" +
+                        "</li>";
     row.append($(Image));
-    row.append($("<h4>" + rowData.title + "</h4>"));
-    row.append($("<span>" + rowData.longdescription + "</span>"));
-    row.append($("<h5>" + rowData.shortdescription + "</h5>"));
-    row.append($(Addition));
 }
