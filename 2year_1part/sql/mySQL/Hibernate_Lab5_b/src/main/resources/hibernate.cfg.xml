@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/Lab_5_b_Hibernate?serverTimezone=UTC</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+
+
+        <!--mapping resource="com/ione/project/AvtosalonEntity.hbm.xml"/-->
+        <mapping class="com.ione.project.AvtosalonEntity"/>
+        <!--mapping resource="com/ione/project/CarDetailEntity.hbm.xml"/-->
+        <mapping class="com.ione.project.CarDetailEntity"/>
+        <!--mapping resource="com/ione/project/CarDetailHasCars1Entity.hbm.xml"/-->
+        <mapping class="com.ione.project.CarDetailHasCars1Entity"/>
+        <!--mapping resource="com/ione/project/CarsEntity.hbm.xml"/-->
+        <mapping class="com.ione.project.CarsEntity"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

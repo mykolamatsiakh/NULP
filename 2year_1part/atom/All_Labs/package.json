@@ -1,19 +1,30 @@
 {
-  "name": "notable",
-  "version": "1.0.0",
-  "description": "",
+  "name": "package",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scotch-io/node-token-authentication.git"
+  },
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Chris Sevilleja <scotch.io>",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "mongodb": "^2.2.16"
+    "body-parser": "~1.18.2",
+    "cors": "^2.8.4",
+    "express": "~4.16.1",
+    "mongoose": "~4.11.14",
+    "morgan": "~1.9.0"
   },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  }
+  "description": "MY WEB PROJECT",
+  "bugs": {
+    "url": "https://github.com/scotch-io/node-token-authentication/issues"
+  },
+  "homepage": "https://github.com/scotch-io/node-token-authentication#readme",
+  "version": "1.0.1",
+  "devDependencies": {},
+  "keywords": [
+    "node"
+  ]
 }

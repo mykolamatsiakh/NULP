@@ -1,1 +1,1 @@
-MY WEB PROJECT
+npm run dev or node server.js

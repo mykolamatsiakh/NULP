@@ -20,7 +20,7 @@ var port = process.env.PORT || 8080; // set our port
 
 // DATABASE SETUP
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://admin1:admin1@ds161455.mlab.com:61455/mongod'); // connect to our database
+mongoose.connect('mongodb://admin:admin@ds135916.mlab.com:35916/laba'); // connect to our database
 
 // Handle the connection event
 var db = mongoose.connection;
