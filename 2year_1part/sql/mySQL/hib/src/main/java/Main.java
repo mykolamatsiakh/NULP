@@ -6,8 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import javax.persistence.ParameterMode;
-import javax.persistence.StoredProcedureQuery;
 import java.util.Scanner;
 
 
@@ -30,28 +28,31 @@ public class Main {
 
             ReadAllTable(session);
 
-//            ReadBookOfPerson(session);
+//            ReadDetailsOfCar(session);    //work!!!
+//            insertAvtosalon(session);     //work!!!
+//            ReadAvtosalonTable(session);  //work!!!
+//            insertCar(session);           //notwork!!!
+            updateCity(session);
+//            ReadAvtosalonFilter(session);
 
-//            ReadCityFilter(session);
+//            ReadAvtosalonTable(session);
 
-//            ReadCityTable(session);
-//            insertCity(session);
-//            ReadCityTable(session);
+//            ReadAvtosalonTable(session);
 
-//            insertPerson(session);
 
-//            ReadCityFilter(session);
+
+//            ReadAvtosalonFilter(session);
 
 //            AddBookForPerson(session);
 //            ReadAllTable(session);
 
-//            ReadCityTable(session);
+//            ReadAvtosalonTable(session);
 //            updateCity(session);
 //            ReadAllTable(session);
 
-//            ReadBookOfPerson(session);
+//            ReadDetailsOfCar(session);
 //            AddPairPersonBookWithProcedure(session);
-//            ReadBookOfPerson(session);
+//            ReadDetailsOfCar(session);
 
             System.out.println("Finish work!");
         } finally { session.close(); System.exit(0); }
@@ -87,94 +88,94 @@ public class Main {
 
     }
 
-//    private static void ReadCityFilter(Session session){
-//
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("Input name city for Person: ");
-//        String city_in = input.next();
-//
-//        AvtosalonEntity cityEntity = (AvtosalonEntity) session.load( AvtosalonEntity.class, city_in);
-//        if(cityEntity!=null){
-//            System.out.format("\n%s: %s\n", city_in, "Surname");
-//            for (CarsEntity obj : cityEntity.getPeopleByCity())
-//                System.out.format("    %s\n", obj.getSurname());
-//        }
-//        else System.out.println("invalid name of city");
-//    }
-//
-//    private static void ReadBookOfPerson(Session session){
-//        Query query = session.createQuery("from " + "PersonEntity");
-//        System.out.format("\nTable Person --------------------\n");
-//        System.out.format("%3s %-12s %-12s \n","ID", "Surname", "Name");
-//        for (Object obj : query.list()) {
-//            PersonEntity person = (PersonEntity) obj;
-//            System.out.format("%3s %-12s %-12s->\n", person.getIdPerson(), person.getSurname(), person.getName());
-//            for (BookEntity booky : person.getBooks()) {
-//                System.out.format("\t\t%s // %s\n", booky.getBookName(),  booky.getAuthor());
-//            }
-//        }
-//    }
-//
-//    private static void ReadCityTable(Session session){
-//
-//        Query query = session.createQuery("from " + "CityEntity");
-//        System.out.format("\nTable City --------------------\n");
-//        for (Object obj : query.list()) {
-//            CityEntity city = (CityEntity) obj;
-//            System.out.format("%s\n", city.getCity());
-//        }
-//    }
-//
-//    private static void insertCity(Session session){
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("Input a new name city: ");
-//        String newcity = input.next();
-//
-//        session.beginTransaction();
-//        CityEntity cityEntity=new CityEntity(newcity);
-//        session.save(cityEntity);
-//        session.getTransaction().commit();
-//
-//        System.out.println("end insert city");
-//    }
-//
-//    private static void insertPerson(Session session){
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("Input new Person Surname: ");
-//        String surname_new = input.next();
-//        System.out.println("Input new Person Surname: ");
-//        String name_new = input.next();
-//        System.out.println("Input the City for Person: ");
-//        String city = input.next();
-//        System.out.println("Input new Person Email: ");
-//        String email = input.next();
-//
-//        session.beginTransaction();
-//        PersonEntity personEntity=new PersonEntity(surname_new,name_new,city,email);
-//        session.save(personEntity);
-//        session.getTransaction().commit();
-//        System.out.println("end insert person");
-//    }
-//
-//    private static void updateCity(Session session){
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("\nInput a name city: ");
-//        String city = input.next();
-//        System.out.println("Input new name city: ");
-//        String newCity = input.next();
-//
-//        CityEntity cityEntity = (CityEntity) session.load( CityEntity.class, city);
-//        if(cityEntity!=null){
-//            session.beginTransaction();
-//            Query query = session.createQuery("update CityEntity set city=:code1  where city = :code2");
-//            query.setParameter("code1", newCity);
-//            query.setParameter("code2", city);
-//            int result = query.executeUpdate();
-//            session.getTransaction().commit();
-//            System.out.println("end update city: "+ result);
-//        }
-//        else System.out.println("There is no the city");
-//    }
+
+    //neWORK!!!
+    private static void ReadAvtosalonFilter(Session session){
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Input name Avtosalon for Car: ");
+        String car_in = input.next();
+
+        AvtosalonEntity cityEntity = (AvtosalonEntity) session.load( AvtosalonEntity.class, car_in);
+        if(cityEntity!=null){
+            System.out.format("\n%s: %s\n", car_in, "ID CAR:");
+            for (CarsEntity obj : cityEntity.getCars())
+                System.out.format("    %s\n", obj.getAvtosalon());
+        }
+        else System.out.println("invalid name of Avtosalon");
+    }
+    //neWORK!!!
+    private static void ReadDetailsOfCar(Session session){
+        Query query = session.createQuery("from " + "CarsEntity ");
+        System.out.format("\nTable Person --------------------\n");
+        System.out.format("%3s %-12s \n","ID", "Seller");
+        for (Object obj : query.list()) {
+            CarsEntity carsEntity = (CarsEntity) obj;
+            System.out.format("%3s %-12s->\n", carsEntity.getIdCars(), carsEntity.getSeler());
+            for (CarDetailEntity carDetailEntity : carsEntity.getDetails()) {
+                System.out.format("\t\t%s // %s\n", carDetailEntity.getClazz(),  carDetailEntity.getMaxDistanc());
+            }
+        }
+    }
+
+    private static void ReadAvtosalonTable(Session session){
+
+        Query query = session.createQuery("from " + "AvtosalonEntity ");
+        System.out.format("\nTable Avtosalon --------------------\n");
+        for (Object obj : query.list()) {
+            AvtosalonEntity city = (AvtosalonEntity) obj;
+            System.out.format("%s\n", city.getName());
+        }
+    }
+
+    private static void insertAvtosalon(Session session){
+        Scanner input = new Scanner(System.in);
+//        int idAvtosalon = 4;
+        System.out.println("Input new : ");
+        String name = input.next();
+        System.out.println("Input the City for Person: ");
+        String ownerName = input.next();
+
+        session.beginTransaction();
+        AvtosalonEntity cityEntity=new AvtosalonEntity(name,ownerName);
+        session.save(cityEntity);
+        session.getTransaction().commit();
+
+        System.out.println("end insert Avtosalon");
+    }
+    //notwork!!!
+    private static void insertCar(Session session){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Input new Sellers Name for Car: ");
+        String surname_new = input.next();
+
+
+        session.beginTransaction();
+        CarsEntity personEntity=new CarsEntity(surname_new);
+        session.save(personEntity);
+        session.getTransaction().commit();
+        System.out.println("end insert car");
+    }
+    //notwork!!!
+    private static void updateCity(Session session){
+        Scanner input = new Scanner(System.in);
+        System.out.println("\nInput a name of Seller: ");
+        String seler = input.next();
+        System.out.println("Input new name Seller: ");
+        String newCity = input.next();
+
+        CarsEntity cityEntity = (CarsEntity) session.load( CarsEntity.class, seler);
+        if(cityEntity!=null){
+            session.beginTransaction();
+            Query query = session.createQuery("update CarsEntity set seler=:code1  where seler = :code2");
+            query.setParameter("code1", newCity);
+            query.setParameter("code2", seler);
+            int result = query.executeUpdate();
+            session.getTransaction().commit();
+            System.out.println("end update Seller: "+ result);
+        }
+        else System.out.println("There is no the Seller");
+    }
 //
 //    private static void AddBookForPerson(Session session){
 //        System.out.println("Give a book to person--------------");

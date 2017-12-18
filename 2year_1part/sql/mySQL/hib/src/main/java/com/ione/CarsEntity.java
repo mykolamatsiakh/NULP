@@ -17,6 +17,14 @@ public class CarsEntity {
         return idCars;
     }
 
+    public CarsEntity(){}
+
+    public CarsEntity(String a){
+        seler =a;
+
+    }
+
+
     public void setIdCars(int idCars) {
         this.idCars = idCars;
     }

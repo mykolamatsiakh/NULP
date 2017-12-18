@@ -11,6 +11,12 @@ public class AvtosalonEntity {
     private String ownerName;
     private Collection<CarsEntity> cars;
 
+    public AvtosalonEntity(){}
+
+    public AvtosalonEntity(String b,String c){
+        name =b;
+        ownerName =c;
+    }
     @Id
     @Column(name = "idAvtosalon", nullable = false)
     public int getIdAvtosalon() {
