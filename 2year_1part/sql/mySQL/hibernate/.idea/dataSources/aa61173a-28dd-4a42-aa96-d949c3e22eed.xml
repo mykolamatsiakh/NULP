@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_hibernate_vanyok@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_hibernate_vanyok">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="andy_4"/>
+    <schema id="4" parent="1" name="db_hibernate"/>
+    <schema id="5" parent="1" name="db_hibernate_andy"/>
+    <schema id="6" parent="1" name="db_hibernate_yurec"/>
+    <schema id="7" parent="1" name="db_jbdc"/>
+    <schema id="8" parent="1" name="db_spring"/>
+    <schema id="9" parent="1" name="db_spring_bocyk"/>
+    <schema id="10" parent="1" name="db_spring_pashtet"/>
+    <schema id="11" parent="1" name="db_spring_vanyok"/>
+    <schema id="12" parent="1" name="information_schema"/>
+    <schema id="13" parent="1" name="labor_sql"/>
+    <schema id="14" parent="1" name="mysport"/>
+    <schema id="15" parent="1" name="mysql"/>
+    <schema id="16" parent="1" name="performance_schema"/>
+    <schema id="17" parent="1" name="selects"/>
+    <schema id="18" parent="1" name="spivrobitnyky"/>
+    <schema id="19" parent="1" name="students"/>
+    <schema id="20" parent="1" name="sys"/>
+    <table id="21" parent="2" name="avtosalon"/>
+    <table id="22" parent="2" name="detail"/>
+    <table id="23" parent="2" name="vlasnyk"/>
+    <table id="24" parent="2" name="vlasnykdetail"/>
+    <routine id="25" parent="2" name="InsertVlasnykDetail">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <column id="26" parent="21" name="AvtosalonName">
+      <Position>1</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="27" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>AvtosalonName</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="22" name="IDDetail">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="22" name="DetailName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="22" name="Author">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="22" name="Amount">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="32" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>IDDetail</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="23" name="IDVlasnyk">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="23" name="Surname">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="23" name="Name">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="23" name="AvtosalonName">
+      <Position>4</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="23" name="Email">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="38" parent="23" name="vlasnyk_ibfk_1">
+      <ColNames>AvtosalonName</ColNames>
+    </index>
+    <key id="39" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>IDVlasnyk</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="23" name="vlasnyk_ibfk_1">
+      <ColNames>AvtosalonName</ColNames>
+      <RefSchemaName>db_hibernate_vanyok</RefSchemaName>
+      <RefTableName>avtosalon</RefTableName>
+      <RefColNames>AvtosalonName</RefColNames>
+    </foreign-key>
+    <column id="41" parent="24" name="IDVlasnyk">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="24" name="IDDetail">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="24" name="IDDetail">
+      <ColNames>IDDetail</ColNames>
+    </index>
+    <key id="44" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>IDVlasnyk
+IDDetail</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="24" name="vlasnykdetail_ibfk_1">
+      <ColNames>IDVlasnyk</ColNames>
+      <RefSchemaName>db_hibernate_vanyok</RefSchemaName>
+      <RefTableName>vlasnyk</RefTableName>
+      <RefColNames>IDVlasnyk</RefColNames>
+    </foreign-key>
+    <foreign-key id="46" parent="24" name="vlasnykdetail_ibfk_2">
+      <ColNames>IDDetail</ColNames>
+      <RefSchemaName>db_hibernate_vanyok</RefSchemaName>
+      <RefTableName>detail</RefTableName>
+      <RefColNames>IDDetail</RefColNames>
+    </foreign-key>
+    <argument id="47" parent="25" name="SurnameVlasnykIn">
+      <DataType>varchar(25)|0</DataType>
+    </argument>
+    <argument id="48" parent="25" name="DetailNameIN">
+      <DataType>varchar(45)|0</DataType>
+    </argument>
+  </database-model>
+</dataSource>
