@@ -1,10 +1,8 @@
 package com.my;
-
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
-@Table(name = "vlasnyk", schema = "db_hibernate_vanyok", catalog = "")
+@Table(name = "vlasnyk", schema = "db_hibernate", catalog = "")
 public class VlasnykEntity {
     private int idVlasnyk;
     private String surname;

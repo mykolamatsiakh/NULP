@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "detail", schema = "db_hibernate_vanyok", catalog = "")
+@Table(name = "detail", schema = "db_hibernate", catalog = "")
 public class DetailEntity {
     private int idDetail;
     private String detailName;
@@ -78,7 +78,7 @@ public class DetailEntity {
     }
 
     @ManyToMany
-    @JoinTable(name = "vlasnykdetail", catalog = "", schema = "db_hibernate_vanyok", joinColumns = @JoinColumn(name = "IDDetail", referencedColumnName = "IDDetail", nullable = false), inverseJoinColumns = @JoinColumn(name = "IDVlasnyk", referencedColumnName = "IDVlasnyk", nullable = false))
+    @JoinTable(name = "vlasnykdetail", catalog = "", schema = "db_hibernate", joinColumns = @JoinColumn(name = "IDDetail", referencedColumnName = "IDDetail", nullable = false), inverseJoinColumns = @JoinColumn(name = "IDVlasnyk", referencedColumnName = "IDVlasnyk", nullable = false))
     public List<VlasnykEntity> getVlasnyks() {
         return vlasnyks;
     }

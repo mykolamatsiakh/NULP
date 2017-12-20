@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS db_hibernate_vanyok DEFAULT CHARACTER SET utf8;
-USE db_hibernate_vanyok;
+CREATE SCHEMA IF NOT EXISTS db_hibernate DEFAULT CHARACTER SET utf8;
+USE db_hibernate;
 
 CREATE TABLE Avtosalon
 (
