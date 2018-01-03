@@ -14,12 +14,12 @@ def add_arr(blist):
         my_pattern = pattern[:length_of_element]
         if new_list.issubset(my_pattern) and len(new_list) <= 29:
             count = count + 1
-            print "ok: ", new_list
+            print "Vse Good: ", new_list
             del blist[k]
             del blist[n]
             break
-        else:
-            print "neOK: ", new_list
+        #else:
+            #print "Vse Propalo: ", new_list
     n = n+1
     k = k+1
     print count

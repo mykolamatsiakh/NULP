@@ -1,4 +1,3 @@
-
 comparationCounter = 0
 swapCounter = 0
 def insertion_sort(alist):
